@@ -10,6 +10,7 @@ module.exports = function check(str, brConfig) {
     res = str.split("").reduce((a, b) => {
       console.log("a", a);
       const len = a.length;
+      if (!len && !begin.includes(b) && end.includes(b)) throw new Error();
       if (len && begin.indexOf(a[len - 1]) === end.indexOf(b)) {
         a.length--;
         return a;
